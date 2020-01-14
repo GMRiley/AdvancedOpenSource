@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div class="garbage">
+
+    </div>
+</body>
+</html>
+<script>
+    const data = async () => {
+        let jsonData = await fetch('http://localhost:3000/todo')
+        return jsonData.json()
+    }
+    const builder = async() => {
+        const eggDog = await data()  
+        const list = document.querySelector('.garbage')
+        let str = ""
+
+        for(val in eggDog){
+            str += "<ul>"
+            str += "<li>ID: " + eggDog[val]['id'] + "</li>"
+            str += "<li>Title: " + eggDog[val]['title'] + "</li>"
+            str += "<li>Completed: " + eggDog[val]['completed'] + "</li>"
+            str += "</ul>"
+        }
+        list.innerHTML = str
+    }
+    builder()
+</script>
