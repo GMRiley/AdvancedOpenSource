@@ -7,3 +7,10 @@ router.get('/', function(req, res, next) {
 });
 
 module.exports = router;
+
+const submit = () => {
+    const name = document.querySelector(".name")
+    const email = document.querySelector(".email")
+    const comments = document.querySelector(".comments")
+    
+}
