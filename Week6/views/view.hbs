@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Results</title>
+</head>
+<body>
+    <table class="table table-dark">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">First</th>
+      <th scope="col">Last</th>
+      <th scope="col">email</th>
+      <th scope="col">Job Title</th>
+      <th scope="col">Department</th>
+      <th scope="col">Start Date</th>
+      <th scope="col">Salary</th>
+    </tr>
+  </thead>
+  
+  <tbody>
+      {{#each employees}}
+      <tr>
+          <th scope="row">{{@index}}</th>
+          <td>{{this.firstName}}</td>
+          <td>{{this.lastName}}</td>
+          <td>{{this.email}}</td>
+          <td>{{this.jobTitle}}</td>
+          <td>{{this.department}}</td>
+          <td>{{this.startDate}}</td>
+          <td>{{this.salary}}</td>
+          <td><form action="/delete" method="DELETE"><button type="submit" class="btn btn-danger">Delete</button></form></td>
+      </tr>
+      {{/each}}
+  </tbody>
+</table>
+</body>
+</html>

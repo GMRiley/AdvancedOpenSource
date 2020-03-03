@@ -2,15 +2,15 @@
 <p>Welcome to {{title}}</p>
 <br>
 
-<form>
+<form action="/view" method="POST">
   <div class="form-row">
     <div class="col-md-4 mb-3">
       <label for="validationDefault01">First name</label>
-      <input type="text" class="form-control" id="validationDefault01" required>
+      <input type="text" class="form-control" id="validationDefault01" name="firstName" required>
     </div>
     <div class="col-md-4 mb-3">
       <label for="validationDefault02">Last name</label>
-      <input type="text" class="form-control" id="validationDefault02" required>
+      <input type="text" class="form-control" id="validationDefault02" name="lastName"required>
     </div>
     <div class="col-md-4 mb-3">
       <label for="validationDefaultUsername">Email</label>
@@ -18,18 +18,18 @@
         <div class="input-group-prepend">
           <span class="input-group-text" id="inputGroupPrepend2" type="email">@</span>
         </div>
-        <input type="text" class="form-control" id="validationDefaultUsername"  aria-describedby="inputGroupPrepend2" required>
+        <input type="text" class="form-control" id="validationDefaultUsername" aria-describedby="inputGroupPrepend2" name="email" required>
       </div>
     </div>
   </div>
   <div class="form-row">
     <div class="col-md-3 mb-3">
       <label for="validationDefault03">Job Title</label>
-      <input type="text" class="form-control" id="validationDefault03" required>
+      <input type="text" class="form-control" id="validationDefault03" name="jobTitle" required>
     </div>
     <div class="col-md-3 mb-3">
       <label for="validationDefault04">Department</label>
-      <select class="custom-select" id="validationDefault04" required>
+      <select class="custom-select" id="validationDefault04" name="department" required>
         <option selected disabled value="">Choose...</option>
         <option>Engineering</option>
         <option>Sales</option>
@@ -38,11 +38,11 @@
     </div>
     <div class="col-md-3 mb-3">
       <label for="validationDefault05">Start Date</label>
-      <input type="date" class="form-control" id="validationDefault05" required>
+      <input type="date" class="form-control" id="validationDefault05" name="startDate" required>
     </div>
     <div class="col-md-3 mb-3">
         <label>Salary</label>
-        <input type="number" class="form-control" id="salary" required>
+        <input type="number" class="form-control" id="salary" name="salary" required>
     </div>
   </div>
   <button class="btn btn-primary" type="submit">Submit form</button>

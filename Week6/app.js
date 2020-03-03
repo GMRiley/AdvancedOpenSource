@@ -3,12 +3,12 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
+let User = require('./db/models/User');
+require('./db/mongoose/mongoose')
 
 var indexRouter = require('./routes/index');
-var usersRouter = require('./routes/users');
 var viewRouter = require('./routes/view');
 var updateRouter = require('./routes/update');
-var deleteRouter = require('./routes/delete')
 
 var app = express();
 
@@ -23,10 +23,24 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
-app.use('/users', usersRouter);
+app.post('/view', (req, res)=>{
+  let user = new User(req.body)
+  user.save().then(()=>{
+    res.redirect('/view')
+  }).catch((e)=>{
+    res.status(400).send(e);
+  })
+});
+app.delete('/delete', (req, res) =>{
+  let user = new User()
+
+  user.findByIdAndRemove({_id : req.params.id}, (err,doc) =>{
+    res.redirect('/view')
+  })
+  
+})
 app.use('/view', viewRouter);
 app.use('/update', updateRouter);
-app.use('/delete', deleteRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
