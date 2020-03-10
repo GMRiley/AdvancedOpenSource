@@ -32,7 +32,7 @@
           <td>{{this.department}}</td>
           <td>{{this.startDate}}</td>
           <td>{{this.salary}}</td>
-          <td><form action="/delete" method="DELETE"><button type="submit" class="btn btn-danger">Delete</button></form></td>
+          <td><form action="/delete/{{this.id}}" method="POST"><button type="submit" class="btn btn-danger">Delete</button></form></td>
       </tr>
       {{/each}}
   </tbody>

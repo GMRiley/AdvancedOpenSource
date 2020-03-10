@@ -31,10 +31,8 @@ app.post('/view', (req, res)=>{
     res.status(400).send(e);
   })
 });
-app.delete('/delete', (req, res) =>{
-  let user = new User()
-
-  user.findByIdAndRemove({_id : req.params.id}, (err,doc) =>{
+app.post('/delete/:id', (req, res) =>{
+  User.findByIdAndRemove({_id : req.params.id}, (err,doc) =>{
     res.redirect('/view')
   })
   
